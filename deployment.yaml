@@ -3,26 +3,26 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: nodejs-app
-    name: nodejs-app
+    app: myapp
+  name: myapp
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nodejs-app
+      app: myapp
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: nodejs-app
+        app: myapp
     spec:
       containers:
-      - image: shreedhar4037/nodejs-circleci:4
-        name: nodejs-app
+      - image: shreedhar4037/flask-app
+        name: myapp
         resources: {}
 status: {}
-#####
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -33,6 +33,6 @@ spec:
   type: LoadBalancer
   ports:
   - port: 80
-    targetPort: 1337
+    targetPort: 5000
   selector:
-    app: nodejs-app
+    app: myapp
