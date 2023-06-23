@@ -1,38 +1,38 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodejs
-  
+  creationTimestamp: null
   labels:
-    app: nodejs
+    app: nodejs-app
+  name: nodejs-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nodejs
+      app: nodejs-app
+  strategy: {}
   template:
     metadata:
+      creationTimestamp: null
       labels:
-        app: nodejs
+        app: nodejs-app
     spec:
       containers:
-        - name: nodejs-argocd
-          image: shreedhar4037/nodejs-circleci:3
-          ports:
-            - name: http
-              containerPort: 1337
-####
+      - image: shreedhar4037/nodejs-circleci
+        name: nodejs-app
+        resources: {}
+status: {}
+#####
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodejs
- 
+  name: lb-service
   labels:
-    app: nodejs
+    app: lb-service
 spec:
   type: LoadBalancer
   ports:
-    - port: 80
-      targetPort: 1337
+  - port: 80
+    targetPort: 1337
   selector:
-    app: nodejs
+    app: nodejs-app
