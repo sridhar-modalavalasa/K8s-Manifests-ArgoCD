@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: nodejs-argocd
-          image: shreedhar4037/nodejs-circleci
+          image: shreedhar4037/nodejs-circleci:3
           ports:
             - name: http
               containerPort: 1337
