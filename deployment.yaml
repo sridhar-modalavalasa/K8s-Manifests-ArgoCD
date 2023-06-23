@@ -31,7 +31,7 @@ metadata:
   labels:
     app: nodejs-service
 spec:
-  type: loadbalancer
+  type: LoadBalancer
   ports:
     - port: 80
       targetPort: 1337
