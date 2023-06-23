@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodejs-app
+  name: nodejs
   namespace: nodejs
   labels:
-    app: nodejs-app
+    app: nodejs
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nodejs-app
+      app: nodejs
   template:
     metadata:
       labels:
-        app: nodejs-app
+        app: nodejs
     spec:
       containers:
         - name: nodejs-argocd
@@ -22,18 +22,17 @@ spec:
             - name: http
               containerPort: 1337
 ####
-
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodejs-service
+  name: nodejs
   namespace: nodejs
   labels:
-    app: nodejs-service
+    app: nodejs
 spec:
   type: LoadBalancer
   ports:
     - port: 80
       targetPort: 1337
   selector:
-    app: nodejs-app
+    app: nodejs
