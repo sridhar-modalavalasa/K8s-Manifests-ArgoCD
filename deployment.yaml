@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: nodejs-app
-  name: nodejs-app
+    name: nodejs-app
 spec:
   replicas: 3
   selector:
