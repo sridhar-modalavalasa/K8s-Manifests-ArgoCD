@@ -16,7 +16,7 @@ node {
                         sh "git config user.name sridhar-modalavalasa"
                       
                         sh "cat deployment.yaml"
-                        sh "sed -i 's+shreedhar4037/nodejs-circleci.*+shreedhar4037/nodejs-circleci:${DOCKERTAG}+g' deployment.yaml"
+                        sh "sed -i 's+shreedhar4037/flask-app.*+shreedhar4037/flask-app:${DOCKERTAG}+g' deployment.yaml"
                         sh "cat deployment.yaml"
                         sh "git add ."
                         sh "git commit -m 'By Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
