@@ -18,7 +18,7 @@ spec:
         app: nodejs-app
     spec:
       containers:
-      - image: shreedhar4037/nodejs-circleci
+      - image: shreedhar4037/nodejs-circleci:4
         name: nodejs-app
         resources: {}
 status: {}
