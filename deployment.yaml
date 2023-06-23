@@ -18,7 +18,7 @@ spec:
         app: myapp
     spec:
       containers:
-      - image: shreedhar4037/flask-app:6
+      - image: shreedhar4037/flask-app:7
         name: myapp
         resources: {}
 status: {}
